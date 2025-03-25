@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Approval Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Credit Card Approval Prediction</h1>
+  <form id="predictionForm" onsubmit="event.preventDefault(); makePrediction();">
+    <!-- Extra Numerical Features -->
+    <div class="form-group">
+      <label for="income">Income:</label>
+      <input type="number" id="income" required>
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" required>
+    </div>
+    <div class="form-group">
+      <label for="experience">Experience (years):</label>
+      <input type="number" id="experience" required>
+    </div>
+    
+    <!-- Mapped Categorical Inputs -->
+    <div class="form-group">
+      <label for="married">Married (single/married):</label>
+      <input type="text" id="married" required>
+    </div>
+    <div class="form-group">
+      <label for="house_ownership">House Ownership (owned/rented/norent_noown):</label>
+      <input type="text" id="house_ownership" required>
+    </div>
+    <div class="form-group">
+      <label for="car_ownership">Car Ownership (yes/no):</label>
+      <input type="text" id="car_ownership" required>
+    </div>
+    <div class="form-group">
+      <label for="state">State (numeric code):</label>
+      <input type="number" id="state" required>
+    </div>
+    <div class="form-group">
+      <label for="current_job_years">Current Job Years:</label>
+      <input type="number" id="current_job_years" required>
+    </div>
+    <div class="form-group">
+      <label for="current_house_years">Current House Years:</label>
+      <input type="number" id="current_house_years" required>
+    </div>
+    
+    <!-- Dropdowns for One-Hot Encoded Categorical Variables -->
+    <div class="form-group">
+      <label for="profession">Profession:</label>
+      <select id="profession" required>
+        <option value="">Loading options...</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <select id="city" required>
+        <option value="">Loading options...</option>
+      </select>
+    </div>
+    
+    <button type="submit">Predict</button>
+  </form>
+  <div id="result"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
